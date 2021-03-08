@@ -8,27 +8,27 @@ package Analyzer;
 /** CUP generated class containing symbol constants. */
 public class Simbolo {
   /* terminals */
-  public static final int Decimal = 4;
-  public static final int Falso = 9;
-  public static final int Id = 6;
-  public static final int Cadena = 5;
-  public static final int Char = 7;
+  public static final int Decimal = 3;
+  public static final int Minus = 5;
+  public static final int Divide = 7;
   public static final int EOF = 0;
-  public static final int Verdadero = 8;
-  public static final int Entero = 3;
+  public static final int Par_Left = 8;
+  public static final int Entero = 2;
   public static final int error = 1;
-  public static final int Plus = 2;
+  public static final int Par_Right = 9;
+  public static final int Times = 6;
+  public static final int Plus = 4;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
-  "Plus",
   "Entero",
   "Decimal",
-  "Cadena",
-  "Id",
-  "Char",
-  "Verdadero",
-  "Falso"
+  "Plus",
+  "Minus",
+  "Times",
+  "Divide",
+  "Par_Left",
+  "Par_Right"
   };
 }
 

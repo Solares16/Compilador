@@ -45,9 +45,7 @@ Digito        =   [0-9]
 Letra         =   [a-zA-Z]
 Entero        =   {Digito}+
 Decimal       =   ("+"|"-")?{Entero}("."{Entero})?
-Caracter      =   [\'] [^\'\n] [\']
-Cadena        =   [\"]([^\"\n]|(\\\"))*[\"]
-Id            =   ({Letra} | "_" | "$") ({Letra} | "_" | {Digito} | "$")*
+
 
 
 //Comentarios y Espacios entre tokens 
@@ -65,19 +63,22 @@ COMENTMULTILINEA =   "/*""/"*([^*/]|[^*]"/"|"*"[^/])*"*"*"*/"
 <YYINITIAL>{
   /*********************Listado de simbolos*************************************/
 
-  "+"                   { return new Symbol(Simbolo.Plus,                yyline, yycolumn, yytext());}
+  "+"                   { return new Symbol(Simbolo.Plus,                 yyline, yycolumn, yytext());}
+  "-"                   { return new Symbol(Simbolo.Minus,                yyline, yycolumn, yytext());}
+  "*"                   { return new Symbol(Simbolo.Times,                yyline, yycolumn, yytext());}
+  "/"                   { return new Symbol(Simbolo.Divide,               yyline, yycolumn, yytext());}
+
+  "("                   { return new Symbol(Simbolo.Par_Left,             yyline, yycolumn, yytext());}
+  ")"                   { return new Symbol(Simbolo.Par_Right,            yyline, yycolumn, yytext());}
+
 
   /*********************Lista de palabras reservadas****************************/
-  "verdadero"           { return new Symbol(Simbolo.Verdadero,           yyline, yycolumn, yytext());}
-  "falso"               { return new Symbol(Simbolo.Falso,               yyline, yycolumn, yytext());}
+  
 
   /*******************************Lista de macros********************************/
   
-  {Entero}              { return new Symbol(Simbolo.Entero,           yyline, yycolumn, yytext());}
-  {Decimal}             { return new Symbol(Simbolo.Decimal,          yyline, yycolumn, yytext());}
-  {Cadena}              { return new Symbol(Simbolo.Cadena,           yyline, yycolumn, (yytext()).substring(1,yytext().length()-1)); }
-  {Id}                  { return new Symbol(Simbolo.Id,               yyline, yycolumn, yytext());}
-  {Caracter}            { return new Symbol(Simbolo.Char,             yyline, yycolumn, yytext());}
+  {Entero}              { return new Symbol(Simbolo.Entero,           yyline, yycolumn, new Double(yytext()));}
+  {Decimal}             { return new Symbol(Simbolo.Decimal,          yyline, yycolumn, new Double(yytext()));}  
   {Espacio}             {} //No se realiza ninguna accion para ignorar los espacios 
   {COMENTUNILINEA}      {} //No se realiza ninguna accion para ignorar los comentarios 
   {COMENTMULTILINEA}    {} //No se realiza ninguna accion para ignorar los comentarios 

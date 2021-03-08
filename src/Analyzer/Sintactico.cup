@@ -3,41 +3,50 @@ import java_cup.runtime.*;
 
 parser code
 {:
-
-  //public Archivo AST;
-  //public Archivo GetAST(){
-  //  return AST;
-  //}
-
   public void syntax_error(Symbol s){
           System.err.println("Error Sintáctico en la Línea " + (s.left) +" Columna "+s.right+ ". No se esperaba este componente: " +s.value+".");
   }
-  /**
-   * Método al que se llama en el momento en que ya no es posible una recuperación de errores.
-   **/
+  
+   //Método al que se llama en el momento en que ya no es posible una recuperación de errores.
+      
   public void unrecovered_syntax_error(Symbol s) throws java.lang.Exception{
           System.err.println("Error síntactico irrecuperable en la Línea " + (s.left)+ " Columna "+s.right+". Componente " + s.value + " no reconocido.");
   }
 
 :}
 
+terminal Double Entero;
+terminal Double Decimal;
 terminal Plus;
-terminal Entero,Decimal,Cadena,Id,Char;
-terminal Verdadero, Falso;
+terminal Minus;
+terminal Times;
+terminal Divide;
 
-non terminal  inicio,terminales,terminals;
+terminal Par_Left;
+terminal Par_Right;
+
+non terminal  Start;
+non terminal  terminals;
+non terminal  Exp;
 
 
-start with inicio;
+precedence left Plus, Minus; 
+precedence left Times, Divide; 
 
-inicio ::= terminales {:System.out.println("Eureka !!!");:}
-            ;
-terminales ::= terminales terminals
-                |terminals;
+start with Start;
 
-terminals  ::=   Decimal:a   {:System.out.println("Decimal: " + a);:}
-             |Entero:a        {:System.out.println("Entero: " + a);:}
-             |Cadena:a        {:System.out.println("Cadena: " + a);:}
-             |Id:a            {:System.out.println("Id: " + a);:}
-             |Char:a          {:System.out.println("Char: " + a);:}
+Start ::= Exp:a                         {: System.out.println("Resultado de la operacion:  "+ a) ; :} 
+        ;
+
+Exp ::=  Exp:a  Plus  Exp:b             {:RESULT = (double)a + (double)b ; :}
+        |Exp:a  Minus Exp:b             {:RESULT = (double)a - (double)b ; :}
+        |Exp:a  Times Exp:b             {:RESULT = (double)a * (double)b ; :}
+        |Exp:a Divide Exp:b             {:RESULT = (double)a / (double)b ; :}
+        |Par_Left Exp:a Par_Right       {:RESULT = a; :}
+        |terminals:a                    {:RESULT = a; :}
+        ;
+
+
+terminals  ::=   Decimal:a              {:RESULT = a;:}
+             |   Entero:a               {:RESULT = a;:} 
              ;
