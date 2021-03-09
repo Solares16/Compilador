@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.StringReader;
 
+import AST.*;
+
 /**
  *
  * @author Solares
@@ -19,7 +21,9 @@ public class Ejecutar {
             //Parsear la Entrada 
             Parser = new Parser(new Scanner(new StringReader(LeerArchivo(PATH))));            
             Parser.parse();
-            //Root = Parser.GetRoot();
+            Aritmetica Root = (Aritmetica)Parser.GetAST();
+            
+            System.out.println(Root.Ejecutar());
             
 
         } catch (Exception e) {

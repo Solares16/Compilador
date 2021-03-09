@@ -1,13 +1,14 @@
 package Analyzer;
 import java_cup.runtime.*;
+import AST.*;
 
 parser code
 {:
 
-  //public Archivo AST;
-  //public Archivo GetAST(){
-  //  return AST;
-  //}
+  private Object AST;
+  public Object GetAST(){
+    return AST;
+  }
 
   public void syntax_error(Symbol s){
           System.err.println("Error Sintáctico en la Línea " + (s.left) +" Columna "+s.right+ ". No se esperaba este componente: " +s.value+".");
@@ -21,23 +22,40 @@ parser code
 
 :}
 
+
+terminal double Entero;
+terminal double Decimal;
 terminal Plus;
-terminal Entero,Decimal,Cadena,Id,Char;
-terminal Verdadero, Falso;
+terminal Minus;
+terminal Times;
+terminal Divide;
+terminal Par_Left;
+terminal Par_Right;
 
-non terminal  inicio,terminales,terminals;
+non terminal Start;
+non terminal Expresion terminals;
+non terminal Expresion Exp; 
+
+precedence left Plus, Minus;
+precedence left Times, Divide;
 
 
-start with inicio;
+start with Start;
 
-inicio ::= terminales {:System.out.println("Eureka !!!");:}
-            ;
-terminales ::= terminales terminals
-                |terminals;
+Start ::= Exp:a  {:
+                        this.parser.AST = a;
+                        System.out.println("AST GENERADO "); 
+                :}
+           ;
 
-terminals  ::=   Decimal:a   {:System.out.println("Decimal: " + a);:}
-             |Entero:a        {:System.out.println("Entero: " + a);:}
-             |Cadena:a        {:System.out.println("Cadena: " + a);:}
-             |Id:a            {:System.out.println("Id: " + a);:}
-             |Char:a          {:System.out.println("Char: " + a);:}
-             ;
+Exp ::=   Exp:a Plus   Exp:b            {: RESULT = new Suma(a,b);              :}
+        | Exp:a Minus  Exp:b            {: RESULT = new Resta(a,b);             :}
+        | Exp:a Times  Exp:b            {: RESULT = new Multiplicacion(a,b);    :}
+        | Exp:a Divide Exp:b            {: RESULT = new Division(a,b);        :}
+        | Par_Left Exp:a Par_Right      {: RESULT = a; :}
+        | terminals:a                   {: RESULT = a; :}
+        ;
+
+terminals::= Decimal:a   {:     RESULT = new Decimal(a);   :}
+           | Entero:a    {:     RESULT = new Decimal(a);   :}   
+           ;

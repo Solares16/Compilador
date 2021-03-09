@@ -15,4 +15,3 @@ echo ===================================================
 del Parser.java Simbolo.java
 java -jar java-cup-11b.jar -parser Parser -symbols Simbolo Sintactico.cup
 
-pause
