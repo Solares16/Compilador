@@ -1,12 +1,13 @@
 package Pck_Main;
 
+import AST.Expresion.Expresion;
 import Analyzer.Parser;
 import Analyzer.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.StringReader;
+import java.util.LinkedList;
 
-import AST.*;
 
 /**
  *
@@ -21,9 +22,10 @@ public class Ejecutar {
             //Parsear la Entrada 
             Parser = new Parser(new Scanner(new StringReader(LeerArchivo(PATH))));            
             Parser.parse();
-            Aritmetica Root = (Aritmetica)Parser.GetAST();
             
-            System.out.println(Root.Ejecutar());
+            LinkedList<Expresion> Root = (LinkedList<Expresion>)Parser.GetAST();            
+            System.out.println("Root recuperado en ejecutar");
+                //System.out.println(Root.Ejecutar());
             
 
         } catch (Exception e) {

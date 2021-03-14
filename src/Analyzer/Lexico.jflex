@@ -45,6 +45,9 @@ Digito        =   [0-9]
 Letra         =   [a-zA-Z]
 Entero        =   {Digito}+
 Decimal       =   ("+"|"-")?{Entero}("."{Entero})?
+Caracter      =   [\'] [^\'\n] [\']
+Cadena        =   [\"]([^\"\n]|(\\\"))*[\"]
+Id            =   ({Letra} | "_" | "$") ({Letra} | "_" | {Digito} | "$")*
 
 
 //Comentarios y Espacios entre tokens 
@@ -61,20 +64,40 @@ COMENTMULTILINEA =   "/*""/"*([^*/]|[^*]"/"|"*"[^/])*"*"*"*/"
 
 <YYINITIAL>{
   /*********************Listado de simbolos*************************************/
+  //todos los simbolos anteceden S_
 
-  "+"                   { return new Symbol(Simbolo.Plus,                 yyline, yycolumn, yytext());}
-  "-"                   { return new Symbol(Simbolo.Minus,                yyline, yycolumn, yytext());}
-  "*"                   { return new Symbol(Simbolo.Times,                yyline, yycolumn, yytext());}
-  "/"                   { return new Symbol(Simbolo.Divide,               yyline, yycolumn, yytext());}
-  "("                   { return new Symbol(Simbolo.Par_Left,             yyline, yycolumn, yytext());}
-  ")"                   { return new Symbol(Simbolo.Par_Right,            yyline, yycolumn, yytext());}
+  "+"                   { return new Symbol(Simbolo.s_Plus,                 yyline, yycolumn, yytext());}
+  "-"                   { return new Symbol(Simbolo.s_Minus,                yyline, yycolumn, yytext());}
+  "*"                   { return new Symbol(Simbolo.s_Times,                yyline, yycolumn, yytext());}
+  "/"                   { return new Symbol(Simbolo.s_Divide,               yyline, yycolumn, yytext());}  
+  ">"                   { return new Symbol(Simbolo.s_MayQ,                 yyline, yycolumn, yytext());}
+  ">="                  { return new Symbol(Simbolo.s_MayIgQ,               yyline, yycolumn, yytext());}
+  "<"                   { return new Symbol(Simbolo.s_MenQ,                 yyline, yycolumn, yytext());}
+  "<="                  { return new Symbol(Simbolo.s_MenIgQ,               yyline, yycolumn, yytext());}
+  "=="                  { return new Symbol(Simbolo.s_IgIg,                 yyline, yycolumn, yytext());}
+  "!="                  { return new Symbol(Simbolo.s_dif,                  yyline, yycolumn, yytext());}
+  "&&"                  { return new Symbol(Simbolo.s_And,                 yyline, yycolumn, yytext());}
+  "||"                  { return new Symbol(Simbolo.s_Or ,                 yyline, yycolumn, yytext());}
+  "!"                   { return new Symbol(Simbolo.s_Not,                 yyline, yycolumn, yytext());}
+  "("                   { return new Symbol(Simbolo.s_Par_Left,             yyline, yycolumn, yytext());}
+  ")"                   { return new Symbol(Simbolo.s_Par_Right,            yyline, yycolumn, yytext());}
+  ";"                   { return new Symbol(Simbolo.s_SemiColon,            yyline, yycolumn, yytext());}
 
   /*********************Lista de palabras reservadas****************************/  
+  //Todas las palabras reservadas anteceden r_
+
+  "verdadero"           { return new Symbol(Simbolo.r_Verdadero,            yyline, yycolumn, yytext());}
+  "falso"               { return new Symbol(Simbolo.r_Falso,                yyline, yycolumn, yytext());}
 
   /*******************************Lista de macros********************************/
+  //Todos los macros anteceden m_
   
-  {Entero}              { return new Symbol(Simbolo.Entero,               yyline, yycolumn, new Double(yytext()));}
-  {Decimal}             { return new Symbol(Simbolo.Decimal,              yyline, yycolumn, new Double(yytext()));}  
+  {Entero}              { return new Symbol(Simbolo.m_Entero,               yyline, yycolumn, yytext());}
+  {Decimal}             { return new Symbol(Simbolo.m_Decimal,              yyline, yycolumn, yytext());}  
+  {Caracter}            { return new Symbol(Simbolo.m_Caracter,             yyline, yycolumn, yytext());} 
+  {Cadena}              { return new Symbol(Simbolo.m_Cadena,               yyline, yycolumn, yytext());}  
+  {Id}                  { return new Symbol(Simbolo.m_Id,                   yyline, yycolumn, yytext());}
+
   {Espacio}             {} //No se realiza ninguna accion para ignorar los espacios 
   {COMENTUNILINEA}      {} //No se realiza ninguna accion para ignorar los comentarios 
   {COMENTMULTILINEA}    {} //No se realiza ninguna accion para ignorar los comentarios 

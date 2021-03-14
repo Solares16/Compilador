@@ -8,27 +8,57 @@ package Analyzer;
 /** CUP generated class containing symbol constants. */
 public class Simbolo {
   /* terminals */
-  public static final int Decimal = 3;
-  public static final int Minus = 5;
-  public static final int Divide = 7;
+  public static final int m_Entero = 20;
+  public static final int s_Minus = 3;
+  public static final int m_Decimal = 21;
+  public static final int s_Or = 13;
+  public static final int s_IgIg = 10;
+  public static final int s_Divide = 5;
+  public static final int m_Cadena = 23;
+  public static final int s_MayQ = 6;
+  public static final int s_And = 12;
+  public static final int s_Times = 4;
+  public static final int s_Par_Left = 15;
+  public static final int m_Id = 24;
+  public static final int s_MenIgQ = 9;
+  public static final int s_Not = 14;
   public static final int EOF = 0;
-  public static final int Par_Left = 8;
-  public static final int Entero = 2;
+  public static final int s_SemiColon = 17;
+  public static final int m_Caracter = 22;
+  public static final int s_MayIgQ = 7;
+  public static final int s_Par_Right = 16;
   public static final int error = 1;
-  public static final int Par_Right = 9;
-  public static final int Times = 6;
-  public static final int Plus = 4;
+  public static final int s_Plus = 2;
+  public static final int s_MenQ = 8;
+  public static final int r_Falso = 19;
+  public static final int r_Verdadero = 18;
+  public static final int s_dif = 11;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
-  "Entero",
-  "Decimal",
-  "Plus",
-  "Minus",
-  "Times",
-  "Divide",
-  "Par_Left",
-  "Par_Right"
+  "s_Plus",
+  "s_Minus",
+  "s_Times",
+  "s_Divide",
+  "s_MayQ",
+  "s_MayIgQ",
+  "s_MenQ",
+  "s_MenIgQ",
+  "s_IgIg",
+  "s_dif",
+  "s_And",
+  "s_Or",
+  "s_Not",
+  "s_Par_Left",
+  "s_Par_Right",
+  "s_SemiColon",
+  "r_Verdadero",
+  "r_Falso",
+  "m_Entero",
+  "m_Decimal",
+  "m_Caracter",
+  "m_Cadena",
+  "m_Id"
   };
 }
 

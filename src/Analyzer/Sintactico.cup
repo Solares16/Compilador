@@ -1,6 +1,8 @@
 package Analyzer;
 import java_cup.runtime.*;
-import AST.*;
+import AST.Expresion.*;
+import java.util.LinkedList;
+
 
 parser code
 {:
@@ -22,40 +24,92 @@ parser code
 
 :}
 
+terminal s_Plus;
+terminal s_Minus;
+terminal s_Times;
+terminal s_Divide;
 
-terminal double Entero;
-terminal double Decimal;
-terminal Plus;
-terminal Minus;
-terminal Times;
-terminal Divide;
-terminal Par_Left;
-terminal Par_Right;
+terminal s_MayQ;
+terminal s_MayIgQ;
+terminal s_MenQ;
+terminal s_MenIgQ;
+terminal s_IgIg;
+terminal s_dif;
+
+terminal s_And;
+terminal s_Or;
+terminal s_Not;
+
+terminal s_Par_Left;
+terminal s_Par_Right;
+
+terminal s_SemiColon;
+
+terminal r_Verdadero;
+terminal r_Falso;
+terminal m_Entero;
+terminal m_Decimal;
+terminal m_Caracter;
+terminal m_Cadena;
+terminal m_Id;
 
 non terminal Start;
 non terminal Expresion terminals;
 non terminal Expresion Exp; 
+non terminal LinkedList<Expresion> L_Exp;
 
-precedence left Plus, Minus;
-precedence left Times, Divide;
+non terminal Expresion Exp_Aritmetica;
+non terminal Expresion Exp_Relacional;
+non terminal Expresion Exp_Logica;
 
+precedence left  s_Plus, s_Minus;
+precedence left  s_Times, s_Divide;
+precedence left  s_MayQ, s_MayIgQ, s_MenQ, s_MenIgQ, s_IgIg, s_dif;
+precedence right s_Not;
+precedence left  s_Or;
+precedence left  s_And;
 
 start with Start;
 
-Start ::= Exp:a  {:
-                        this.parser.AST = a;
-                        System.out.println("AST GENERADO "); 
-                :}
-           ;
+Start ::= L_Exp:a               {: parser.AST = a;  :}
+          ;
 
-Exp ::=   Exp:a Plus   Exp:b            {: RESULT = new Suma(a,b);              :}
-        | Exp:a Minus  Exp:b            {: RESULT = new Resta(a,b);             :}
-        | Exp:a Times  Exp:b            {: RESULT = new Multiplicacion(a,b);    :}
-        | Exp:a Divide Exp:b            {: RESULT = new Division(a,b);        :}
-        | Par_Left Exp:a Par_Right      {: RESULT = a; :}
-        | terminals:a                   {: RESULT = a; :}
+L_Exp ::=   L_Exp:a Exp:b       {: RESULT=a; RESULT.add(b); :}
+          | Exp:a               {: RESULT = new LinkedList<Expresion>();  RESULT.add(a); :}
+          ;
+
+
+Exp ::=   Exp_Aritmetica:a                      {: RESULT = a;:}
+        | Exp_Relacional:a                      {: RESULT = a;:}
+        | Exp_Logica:a                          {: RESULT = a;:}
+        | s_Par_Left Exp:a s_Par_Right          {: RESULT = a;:}
+        | terminals:a                           {: RESULT = a;:}
         ;
 
-terminals::= Decimal:a   {:     RESULT = new Decimal(a);   :}
-           | Entero:a    {:     RESULT = new Decimal(a);   :}   
+Exp_Logica::=  Exp:a s_And Exp:b           {: RESULT = new And(a,b);            :} 
+              |Exp:a s_Or  Exp:b           {: RESULT = new Or(a,b);             :}
+              |    s_Not   Exp:a           {: RESULT = new Not(a);              :}
+              ;          
+
+Exp_Relacional::= Exp:a s_MayQ    Exp:b   {: RESULT = new MayorQue(a,b);        :}
+                | Exp:a s_MayIgQ  Exp:b   {: RESULT = new MayorIgualQue(a,b);   :}
+                | Exp:a s_MenQ    Exp:b   {: RESULT = new MenorQue(a,b);        :}
+                | Exp:a s_MenIgQ  Exp:b   {: RESULT = new MenorIgualQue(a,b);   :}
+                | Exp:a s_IgIg    Exp:b   {: RESULT = new Igualdad(a,b);        :}
+                | Exp:a s_dif     Exp:b   {: RESULT = new Diferencia(a,b);      :}
+                ;        
+
+Exp_Aritmetica::= Exp:a s_Plus   Exp:b  {: RESULT = new Suma(a,b);           :}
+                | Exp:a s_Minus  Exp:b  {: RESULT = new Resta(a,b);          :}
+                | Exp:a s_Times  Exp:b  {: RESULT = new Multiplicacion(a,b); :}
+                | Exp:a s_Divide Exp:b  {: RESULT = new Division(a,b);       :}
+                ;
+
+terminals::= m_Decimal:a                {: RESULT =  new Numerico(a);        :}
+           | m_Entero:a                 {: RESULT =  new Numerico(a);        :}
+           | m_Caracter:a               {: RESULT =  new Caracter(a);        :}                               
+           | m_Cadena:a                 {: RESULT =  new Cadena(a);          :}
+           | m_Id:a                     {: RESULT =  new Identificador(a);   :}
+           | r_Verdadero:a              {: RESULT =  new Booleano(a);        :}
+           | r_Falso:a                  {: RESULT =  new Booleano(a);        :}
            ;
