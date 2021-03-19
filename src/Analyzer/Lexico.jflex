@@ -94,8 +94,8 @@ COMENTMULTILINEA =   "/*""/"*([^*/]|[^*]"/"|"*"[^/])*"*"*"*/"
   
   {Entero}              { return new Symbol(Simbolo.m_Entero,               yyline, yycolumn, yytext());}
   {Decimal}             { return new Symbol(Simbolo.m_Decimal,              yyline, yycolumn, yytext());}  
-  {Caracter}            { return new Symbol(Simbolo.m_Caracter,             yyline, yycolumn, yytext());} 
-  {Cadena}              { return new Symbol(Simbolo.m_Cadena,               yyline, yycolumn, yytext());}  
+  {Caracter}            { return new Symbol(Simbolo.m_Caracter,             yyline, yycolumn, (yytext()).substring(1,yytext().length()-1)); }     
+  {Cadena}              { return new Symbol(Simbolo.m_Cadena,               yyline, yycolumn, (yytext()).substring(1,yytext().length()-1)); }  
   {Id}                  { return new Symbol(Simbolo.m_Id,                   yyline, yycolumn, yytext());}
 
   {Espacio}             {} //No se realiza ninguna accion para ignorar los espacios 

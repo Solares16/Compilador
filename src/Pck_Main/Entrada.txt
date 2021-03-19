@@ -1,24 +1,42 @@
+4 + 6
+"Hola" + "Mundo"
+4 + "Hola" 
+"Mundo" + 6
+'z' + 10
+20 + 'x'
+'@' + '?'
+verdadero + 10
+15 + falso
+falso + verdadero
+falso + falso  
+'w' +  "hola mundo"
+"hola mundo" + 'e'
+verdadero + " + " + "hola mundo"
+"hola mundo" + " -  " + falso
+'c'  + verdadero
+falso + 'w'
 
 
-        a <  "b"
-        true >  10
-        false <= 10.3
-        'e' >= b
-        a == b 
-        a != b 
-        a && b
-        a || b
-        ! a
-        a + b
-        a - b
-        a * b
-        a / b
 
-        a <  "b" && true >  10  || b
-
-        (a <  "b") && (true >  10)  || b
-
-         (((((((((((((((((((((((((((("b" && true  +  b)))))))))))))))))))))))))))) - 56
+//        a <  "b"
+//        verdadero >  10
+//        falso <= 10.3
+//        'e' >= b
+//        a == b 
+//        a != b 
+//        a && b
+//        a || b
+//        ! a
+//        a + b
+//        a - b
+//        a * b
+//        a / b
+//
+//        a <  "b" && verdadero >  10  || b
+//
+//        (a <  "b") && (verdadero >  10)  || b
+//
+//         (((((((((((((((((((((((((((("b" && verdadero  +  b)))))))))))))))))))))))))))) - 56
 
         
 

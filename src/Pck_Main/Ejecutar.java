@@ -25,7 +25,10 @@ public class Ejecutar {
             
             LinkedList<Expresion> Root = (LinkedList<Expresion>)Parser.GetAST();            
             System.out.println("Root recuperado en ejecutar");
-                //System.out.println(Root.Ejecutar());
+            
+            for (Expresion EXP : Root) {                
+                System.out.println(EXP.Ejecutar()); 
+            }
             
 
         } catch (Exception e) {

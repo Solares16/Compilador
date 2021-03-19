@@ -809,7 +809,7 @@ public class Scanner implements java_cup.runtime.Scanner {
             // fall through
           case 40: break;
           case 16:
-            { return new Symbol(Simbolo.m_Cadena,               yyline, yycolumn, yytext());
+            { return new Symbol(Simbolo.m_Cadena,               yyline, yycolumn, (yytext()).substring(1,yytext().length()-1));
             }
             // fall through
           case 41: break;
@@ -844,7 +844,7 @@ public class Scanner implements java_cup.runtime.Scanner {
             // fall through
           case 47: break;
           case 23:
-            { return new Symbol(Simbolo.m_Caracter,             yyline, yycolumn, yytext());
+            { return new Symbol(Simbolo.m_Caracter,             yyline, yycolumn, (yytext()).substring(1,yytext().length()-1));
             }
             // fall through
           case 48: break;
