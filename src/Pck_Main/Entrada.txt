@@ -1,20 +1,25 @@
-4 + 6
-"Hola" + "Mundo"
-4 + "Hola" 
-"Mundo" + 6
-'z' + 10
-20 + 'x'
-'@' + '?'
-verdadero + 10
-15 + falso
-falso + verdadero
-falso + falso  
-'w' +  "hola mundo"
-"hola mundo" + 'e'
-verdadero + " + " + "hola mundo"
-"hola mundo" + " -  " + falso
-'c'  + verdadero
-falso + 'w'
+//4 - 6
+//"Hola" + "Mundo"
+//4 + "Hola" 
+//"Mundo" + 6
+//'z' + 10
+//20 + 'x'
+//'@' - '?'
+//verdadero + 10
+//15 - falso
+//falso - verdadero
+//verdadero - falso
+//falso - falso  
+//'w' +  "hola mundo"
+//"hola mundo" + 'e'
+//verdadero + " + " + "hola mundo"
+//"hola mundo" + " -  " + falso
+//'c'  + verdadero
+//falso + 'w'
+
+
+
+
 
 
 

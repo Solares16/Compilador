@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/Pck_Main/Entrada.txt</file>
-            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/Pck_Main/Ejecutar.java</file>
+            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Resta.java</file>
+            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Multiplicacion.java</file>
             <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Suma.java</file>
-            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Cadena.java</file>
-            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Booleano.java</file>
-            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Caracter.java</file>
+            <file>file:/D:/Mis%20Documentos/Escritorio/Mini%20Proyectos/Calculadora_Simple_Consola/src/AST/Expresion/Division.java</file>
         </group>
     </open-files>
 </project-private>
