@@ -28,6 +28,7 @@ terminal s_Plus;
 terminal s_Minus;
 terminal s_Times;
 terminal s_Divide;
+terminal UMENOS;
 
 terminal s_MayQ;
 terminal s_MayIgQ;
@@ -45,6 +46,9 @@ terminal s_Par_Right;
 
 terminal s_SemiColon;
 
+terminal s_Aumento;
+terminal s_Decremento;
+
 terminal r_Verdadero;
 terminal r_Falso;
 terminal m_Entero;
@@ -56,18 +60,25 @@ terminal m_Id;
 non terminal Start;
 non terminal Expresion terminals;
 non terminal Expresion Exp; 
+non terminal Expresion Bracket_Exp;
+non terminal Expresion Exp_Aumento;
 non terminal LinkedList<Expresion> L_Exp;
 
 non terminal Expresion Exp_Aritmetica;
 non terminal Expresion Exp_Relacional;
 non terminal Expresion Exp_Logica;
 
+precedence left  s_And;
+precedence left  s_Or;
+precedence right s_Not;
+
+precedence left  s_MayQ, s_MayIgQ, s_MenQ, s_MenIgQ, s_IgIg, s_dif;
+
 precedence left  s_Plus, s_Minus;
 precedence left  s_Times, s_Divide;
-precedence left  s_MayQ, s_MayIgQ, s_MenQ, s_MenIgQ, s_IgIg, s_dif;
-precedence right s_Not;
-precedence left  s_Or;
-precedence left  s_And;
+precedence right UMENOS;
+precedence left  s_Aumento,s_Decremento ;
+
 
 start with Start;
 
@@ -79,12 +90,21 @@ L_Exp ::=   L_Exp:a Exp:b       {: RESULT=a; RESULT.add(b); :}
           ;
 
 
-Exp ::=   Exp_Aritmetica:a                      {: RESULT = a;:}
-        | Exp_Relacional:a                      {: RESULT = a;:}
-        | Exp_Logica:a                          {: RESULT = a;:}
-        | s_Par_Left Exp:a s_Par_Right          {: RESULT = a;:}
-        | terminals:a                           {: RESULT = a;:}
+Exp ::=   Exp_Aritmetica:a                      {: RESULT = a; :}
+        | Exp_Relacional:a                      {: RESULT = a; :}
+        | Exp_Logica:a                          {: RESULT = a; :}
+        | Bracket_Exp:a                         {: RESULT = a; :}
+        | Exp_Aumento:a                         {: RESULT = a; :}
+        | terminals:a                           {: RESULT = a; :}
         ;
+
+Exp_Aumento::=   Exp:a s_Aumento                 {:RESULT = new Aumento(a); :}
+                |Exp:a s_Decremento              {:RESULT = new Decremento(a); :}
+                ;
+
+Bracket_Exp::=  s_Par_Left Exp:a s_Par_Right    {: RESULT = a; :}
+              | s_Minus  Exp:a                  {: RESULT = new Negativo(a);    :}%prec UMENOS
+              ;        
 
 Exp_Logica::=  Exp:a s_And Exp:b           {: RESULT = new And(a,b);            :} 
               |Exp:a s_Or  Exp:b           {: RESULT = new Or(a,b);             :}

@@ -13,7 +13,7 @@ public class Division extends Operacion {
     @Override
     public Object Ejecutar() {
         /*
-         
+        
             tipos de datos
             numerico
             caracter
@@ -24,13 +24,13 @@ public class Division extends Operacion {
          
          * double   double      double 
          * caracter caracter    double 
-         * booleano booleano    booleano     -- se realiza una operacion AND
+         * booleano booleano    double
          
-         * double   booleano    double       --booleano se convierte a su forma ascii
-         * booleano double      double      
+         * double   booleano    double       --booleano se convierte a su forma numerica
+         * booleano double      double       
         
          * booleano caracter    double 
-         * caracter booleano    double
+         * caracter booleano    double 
          
          */
 

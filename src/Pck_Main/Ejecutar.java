@@ -38,7 +38,7 @@ public class Ejecutar {
 
     }
     
-    private String LeerArchivo(String Path) {
+    private String LeerArchivo(String Path) {        
         String cadena;                                //se utiliza para leer el archivo seleccionado 
         String texto = "";                            //concatena todas las lineas del archivo que se leerà    
         try {                                         // LECTURA DEL ARCHIVO SELECCIONADO

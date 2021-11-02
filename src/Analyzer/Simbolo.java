@@ -8,31 +8,34 @@ package Analyzer;
 /** CUP generated class containing symbol constants. */
 public class Simbolo {
   /* terminals */
-  public static final int m_Entero = 20;
+  public static final int m_Entero = 23;
   public static final int s_Minus = 3;
-  public static final int m_Decimal = 21;
-  public static final int s_Or = 13;
-  public static final int s_IgIg = 10;
+  public static final int m_Decimal = 24;
+  public static final int s_Decremento = 20;
+  public static final int s_Or = 14;
+  public static final int s_IgIg = 11;
   public static final int s_Divide = 5;
-  public static final int m_Cadena = 23;
-  public static final int s_MayQ = 6;
-  public static final int s_And = 12;
+  public static final int m_Cadena = 26;
+  public static final int s_MayQ = 7;
+  public static final int UMENOS = 6;
+  public static final int s_And = 13;
   public static final int s_Times = 4;
-  public static final int s_Par_Left = 15;
-  public static final int m_Id = 24;
-  public static final int s_MenIgQ = 9;
-  public static final int s_Not = 14;
+  public static final int s_Par_Left = 16;
+  public static final int m_Id = 27;
+  public static final int s_MenIgQ = 10;
+  public static final int s_Not = 15;
   public static final int EOF = 0;
-  public static final int s_SemiColon = 17;
-  public static final int m_Caracter = 22;
-  public static final int s_MayIgQ = 7;
-  public static final int s_Par_Right = 16;
+  public static final int s_SemiColon = 18;
+  public static final int m_Caracter = 25;
+  public static final int s_Par_Right = 17;
+  public static final int s_MayIgQ = 8;
+  public static final int s_Aumento = 19;
   public static final int error = 1;
   public static final int s_Plus = 2;
-  public static final int s_MenQ = 8;
-  public static final int r_Falso = 19;
-  public static final int r_Verdadero = 18;
-  public static final int s_dif = 11;
+  public static final int s_MenQ = 9;
+  public static final int r_Falso = 22;
+  public static final int r_Verdadero = 21;
+  public static final int s_dif = 12;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -40,6 +43,7 @@ public class Simbolo {
   "s_Minus",
   "s_Times",
   "s_Divide",
+  "UMENOS",
   "s_MayQ",
   "s_MayIgQ",
   "s_MenQ",
@@ -52,6 +56,8 @@ public class Simbolo {
   "s_Par_Left",
   "s_Par_Right",
   "s_SemiColon",
+  "s_Aumento",
+  "s_Decremento",
   "r_Verdadero",
   "r_Falso",
   "m_Entero",

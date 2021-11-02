@@ -66,22 +66,24 @@ COMENTMULTILINEA =   "/*""/"*([^*/]|[^*]"/"|"*"[^/])*"*"*"*/"
   /*********************Listado de simbolos*************************************/
   //todos los simbolos anteceden S_
 
-  "+"                   { return new Symbol(Simbolo.s_Plus,                 yyline, yycolumn, yytext());}
-  "-"                   { return new Symbol(Simbolo.s_Minus,                yyline, yycolumn, yytext());}
-  "*"                   { return new Symbol(Simbolo.s_Times,                yyline, yycolumn, yytext());}
-  "/"                   { return new Symbol(Simbolo.s_Divide,               yyline, yycolumn, yytext());}  
-  ">"                   { return new Symbol(Simbolo.s_MayQ,                 yyline, yycolumn, yytext());}
-  ">="                  { return new Symbol(Simbolo.s_MayIgQ,               yyline, yycolumn, yytext());}
-  "<"                   { return new Symbol(Simbolo.s_MenQ,                 yyline, yycolumn, yytext());}
-  "<="                  { return new Symbol(Simbolo.s_MenIgQ,               yyline, yycolumn, yytext());}
-  "=="                  { return new Symbol(Simbolo.s_IgIg,                 yyline, yycolumn, yytext());}
-  "!="                  { return new Symbol(Simbolo.s_dif,                  yyline, yycolumn, yytext());}
-  "&&"                  { return new Symbol(Simbolo.s_And,                 yyline, yycolumn, yytext());}
-  "||"                  { return new Symbol(Simbolo.s_Or ,                 yyline, yycolumn, yytext());}
-  "!"                   { return new Symbol(Simbolo.s_Not,                 yyline, yycolumn, yytext());}
-  "("                   { return new Symbol(Simbolo.s_Par_Left,             yyline, yycolumn, yytext());}
-  ")"                   { return new Symbol(Simbolo.s_Par_Right,            yyline, yycolumn, yytext());}
-  ";"                   { return new Symbol(Simbolo.s_SemiColon,            yyline, yycolumn, yytext());}
+  "+"                   { return new Symbol(Simbolo.s_Plus,                  yyline, yycolumn, yytext());}
+  "-"                   { return new Symbol(Simbolo.s_Minus,                 yyline, yycolumn, yytext());}
+  "*"                   { return new Symbol(Simbolo.s_Times,                 yyline, yycolumn, yytext());}
+  "/"                   { return new Symbol(Simbolo.s_Divide,                yyline, yycolumn, yytext());}  
+  ">"                   { return new Symbol(Simbolo.s_MayQ,                  yyline, yycolumn, yytext());}
+  ">="                  { return new Symbol(Simbolo.s_MayIgQ,                yyline, yycolumn, yytext());}
+  "<"                   { return new Symbol(Simbolo.s_MenQ,                  yyline, yycolumn, yytext());}
+  "<="                  { return new Symbol(Simbolo.s_MenIgQ,                yyline, yycolumn, yytext());}
+  "=="                  { return new Symbol(Simbolo.s_IgIg,                  yyline, yycolumn, yytext());}
+  "!="                  { return new Symbol(Simbolo.s_dif,                   yyline, yycolumn, yytext());}
+  "&&"                  { return new Symbol(Simbolo.s_And,                   yyline, yycolumn, yytext());}
+  "||"                  { return new Symbol(Simbolo.s_Or ,                   yyline, yycolumn, yytext());}
+  "!"                   { return new Symbol(Simbolo.s_Not,                   yyline, yycolumn, yytext());}
+  "("                   { return new Symbol(Simbolo.s_Par_Left,              yyline, yycolumn, yytext());}
+  ")"                   { return new Symbol(Simbolo.s_Par_Right,             yyline, yycolumn, yytext());}
+  ";"                   { return new Symbol(Simbolo.s_SemiColon,             yyline, yycolumn, yytext());}
+  "++"                  { return new Symbol(Simbolo.s_Aumento,               yyline, yycolumn, yytext());}
+  "--"                  { return new Symbol(Simbolo.s_Decremento,            yyline, yycolumn, yytext());}
 
   /*********************Lista de palabras reservadas****************************/  
   //Todas las palabras reservadas anteceden r_

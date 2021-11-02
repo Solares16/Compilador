@@ -16,37 +16,97 @@
 //"hola mundo" + " -  " + falso
 //'c'  + verdadero
 //falso + 'w'
-
-
-
-
-
-
-
-//        a <  "b"
-//        verdadero >  10
-//        falso <= 10.3
-//        'e' >= b
-//        a == b 
-//        a != b 
-//        a && b
-//        a || b
-//        ! a
-//        a + b
-//        a - b
-//        a * b
-//        a / b
+// 40--
+// 40++
 //
-//        a <  "b" && verdadero >  10  || b
+//  20 >  10
+//  96 > 'a'
+//  'a'> 98
+//  falso > 2
+//  verdadero > 'a'
+//  'a' > verdadero  
+//  3 > verdadero
+//  falso > verdadero 
+//  'b' > 'a'
 //
-//        (a <  "b") && (verdadero >  10)  || b
+//  20 <  10
+//  96 < 'a'
+//  'a'< 98
+//  falso < 2
+//  verdadero < 'a'
+//  'a' < verdadero  
+//  3 < verdadero
+//  falso < verdadero 
+//  'b' < 'a'
 //
-//         (((((((((((((((((((((((((((("b" && verdadero  +  b)))))))))))))))))))))))))))) - 56
+//
+//  20 >=  10
+//  96 >= 'a'
+//  'a'>= 98
+//  falso >= 2
+//  verdadero >= 'a'
+//  'a' >= verdadero  
+//  3 >= verdadero
+//  falso >= verdadero 
+//  'b' >= 'a'
+//
+//  20 <=  10
+//  96 <= 'a'
+//  'a'<= 98
+//  falso <= 2
+//  verdadero <= 'a'
+//  'a' <= verdadero  
+//  3 <= verdadero
+//  falso <= verdadero 
+//  'b' <= 'a'
+//  45 >= 45
+//
+//
+//  20 ==  10
+//  96 == 'a'
+//  'a'== 98
+//  falso == 2
+//  verdadero == 'a'
+//  'a' == verdadero  
+//  3 == verdadero
+//  falso == verdadero 
+//  'b' == 'a'
+//  "enciclopedia de los atardeceres en el olimpo" == "enciclopedia de los atardeceres en el olimpo"
+//  "a" == 'a'
+//  'a' == "a"
+//  
+//
+//  20 !=  10
+//  96 != 'a'
+//  'a'!= 98
+//  falso != 2
+//  verdadero != 'a'
+//  'a' != verdadero  
+//  3 != verdadero
+//  falso != verdadero 
+//  'b' != 'a'  
+//  "enciclopedia" != "enciclopedia"
+//   "a" != 'a'
+//   'a' != "a"
+//  
+//
+//verdadero && verdadero
+//verdadero && falso
+//falso && verdadero
+//falso && falso
+//
+//verdadero || verdadero
+//verdadero || falso
+//falso || verdadero
+//falso || falso 
+//
+//!falso
+//!verdadero
+//
+//
+//verdadero || falso
+//!falso
+//
+//
 
-        
-
-
-
-
-
-
+"Intento de compilador, expresiones listas !!!"
